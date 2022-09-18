@@ -21,7 +21,7 @@ class CountDownLatch : noncopyable
  private:
   std::mutex mutex_;
   std::condition_variable condition_;
-  std::atomic<int> count_;
+  int32_t count_;
 };
 
 

@@ -11,8 +11,8 @@ namespace slog {
 template<typename T>
 class BlockingQueue : noncopyable {
  public:
-  BlockingQueue() : mutex_(), not_empty_(), queue_() {
-  }
+  // default is OK
+  BlockingQueue() = default;
 
   void Put(const T &x) {
     std::unique_lock<std::mutex> lock(mutex_);

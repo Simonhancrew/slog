@@ -3,8 +3,8 @@
 #include <assert.h>
 #include <string.h>  // for memcpy
 
-#include "slog/noncopyable.h"
-#include "slog/types.h"
+#include "noncopyable.h"
+#include "types.h"
 
 namespace {
 
