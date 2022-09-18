@@ -6,7 +6,7 @@
 
 namespace slog{
 
-class CountDownLatch : noncopyable
+class CountDownLatch : Noncopyable
 {
  public:
 

@@ -9,7 +9,7 @@
 namespace slog {
 
 // read small file < 64KB
-class ReadSmallFile : noncopyable {
+class ReadSmallFile : Noncopyable {
  public:
   ReadSmallFile(std::string filename);
   ~ReadSmallFile();

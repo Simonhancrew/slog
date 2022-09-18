@@ -13,14 +13,14 @@
 
 namespace slog {
 
-class noncopyable {
+class Noncopyable {
  public:
-  noncopyable(const noncopyable &)    = delete;
-  void operator=(const noncopyable &) = delete;
+  Noncopyable(const Noncopyable &)    = delete;
+  void operator=(const Noncopyable &) = delete;
 
  protected:
-  noncopyable()  = default;
-  ~noncopyable() = default;
+  Noncopyable()  = default;
+  ~Noncopyable() = default;
 };
 
 }  // namespace slog

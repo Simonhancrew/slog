@@ -7,7 +7,7 @@
 
 namespace slog {
 
-class LogFile : noncopyable {
+class LogFile : Noncopyable {
  public:
   LogFile(const std::string &basename, off_t roll_size, bool thread_safe = true,
           int flush_interval = 3, int check_every_n = 1024);

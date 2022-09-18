@@ -17,7 +17,7 @@ const size_t kBufSize     = 32;
 namespace slog {
 
 template<int SIZE>
-class FixedBuffer : noncopyable {
+class FixedBuffer : Noncopyable {
  public:
   FixedBuffer() : cur_(data_) {
     SetCookie(CookieStart);

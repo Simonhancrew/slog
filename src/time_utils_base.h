@@ -14,6 +14,6 @@ int32_t LocalTime(const std::time_t &time, std::tm *tm);
 
 std::tm LocalTime();
 
-std::string LocalTimeString();
+std::string LocalTime2String();
 
 }  // namespace slog

@@ -12,7 +12,7 @@
 
 namespace slog {
 
-class AsyncLogging : noncopyable {
+class AsyncLogging : Noncopyable {
  public:
   AsyncLogging(const std::string &basename, off_t roll_size,
                int flush_interval = 3);

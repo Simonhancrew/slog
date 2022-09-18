@@ -5,8 +5,7 @@
 namespace slog {
 
 // make sure the string or char* live longer than stringview
-class StringView  // copyable
-{
+class StringView {
  public:
   StringView(const char *str) : str_(str) {
   }

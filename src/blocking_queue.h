@@ -9,7 +9,7 @@
 namespace slog {
 
 template<typename T>
-class BlockingQueue : noncopyable {
+class BlockingQueue : Noncopyable {
  public:
   // default is OK
   BlockingQueue() = default;
