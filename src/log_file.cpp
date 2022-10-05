@@ -1,4 +1,5 @@
 
+
 #include "log_file.h"
 
 #include <assert.h>
@@ -74,7 +75,8 @@ bool LogFile::RollFile() {
   return false;
 }
 
-std::string LogFile::GetLogFileName(const std::string& basename, uint64_t* now) {
+std::string LogFile::GetLogFileName(const std::string& basename,
+                                    uint64_t* now) {
   string file_name;
   file_name.reserve(basename.size() + 64);
   file_name = basename;
@@ -85,16 +87,16 @@ std::string LogFile::GetLogFileName(const std::string& basename, uint64_t* now) 
       std::chrono::system_clock::now();
   std::time_t now_time_t = std::chrono::system_clock::to_time_t(now_point);
   std::tm* now_tm        = std::localtime(&now_time_t);
-  strftime(timebuf, sizeof(timebuf), ".%Y%m%d-%H%M%S.", now_tm);
+  strftime(timebuf, sizeof(timebuf), ".%Y%m%d-%H%M%S", now_tm);
 
   auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
                 now_point.time_since_epoch()) %
             1000;
 
   file_name += timebuf;
-  file_name += ":" + std::to_string(ms.count());
+  file_name += "-" + std::to_string(ms.count());
   file_name += ".log";
-
+  printf("GetLogFileName():%s\n", file_name.c_str());
   return file_name;
 }
 }  // namespace slog

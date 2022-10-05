@@ -40,7 +40,7 @@ template<typename String>
 int ReadFile(std::string file_name, int max_size, String* content,
              int64_t* file_size = nullptr, int64_t* modify_time = nullptr,
              int64_t* create_time = nullptr) {
-  ReadSmallFile file(filename);
+  ReadSmallFile file(file_name);
   return file.ReadToString(max_size, content, file_size, modify_time,
                            create_time);
 }

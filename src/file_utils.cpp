@@ -1,3 +1,4 @@
+
 #include "file_utils.h"
 
 #include <assert.h>
@@ -19,7 +20,7 @@ using ssize_t = SSIZE_T;
 namespace slog {
 
 AppendFile::AppendFile(std::string file_name)
-    : fp_(fopen(file_name.c_str(), "ae")), written_bytes_(0) {
+    : fp_(fopen(file_name.c_str(), "a+")), written_bytes_(0) {
   assert(fp_);
   setvbuf(fp_, buffer_, buffer_ ? _IOFBF : _IONBF, sizeof buffer_);
 }
@@ -36,7 +37,7 @@ void AppendFile::Append(const char* line, const size_t len) {
     if (tmp == 0) {
       int err = ferror(fp_);
       if (err) {
-        // fprintf(stderr, "AppendFile::append() failed %s\n", )
+        printf("Appendfile::Append failed\n");
       }
       break;
     }
@@ -73,9 +74,10 @@ ReadSmallFile::~ReadSmallFile() {
 }
 
 template<typename String>
-int ReadToString(int max_size, String* content, int64_t* file_size,
-                 int64_t* modify_time, int64_t* create_time) {
-  static_assert(sizeof(off_t) == 8, "_FILE_OFFSET_BITS = 64");
+int ReadSmallFile::ReadToString(int max_size, String* content,
+                                int64_t* file_size, int64_t* modify_time,
+                                int64_t* create_time) {
+  // static_assert(sizeof(off_t) == 8, "_FILE_OFFSET_BITS = 64");
   assert(content != nullptr);
   int err = err_;
   if (fd_ >= 0) {

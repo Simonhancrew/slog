@@ -21,7 +21,8 @@ namespace slog {
 
 LogLevel global_level = Logger::GLogLevel();
 
-const char* LevelName[kMaxTypes] = {"INFO", "DEBUG", "WARRN", "ERROR", "FATAL"};
+const char* LevelName[kMaxTypes] = {"INFO  ", "DEBUG ", "WARRN ", "ERROR ",
+                                    "FATAL "};
 // compile time calcu string len
 class T {
  public:
