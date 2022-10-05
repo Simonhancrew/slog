@@ -97,7 +97,7 @@ inline LogLevel Logger::GLogLevel() {
   slog::Logger(__FILE__, __LINE__, slog::LogLevel::kFatal).Stream()
 
 #define CHECK_NOTNULL(val) \
-  ::slog::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
+  slog::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
 
 // A small helper for CHECK_NOTNULL().
 template<typename T>

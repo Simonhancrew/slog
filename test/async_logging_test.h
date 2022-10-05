@@ -11,12 +11,12 @@
 namespace slog {
 AsyncLogging* log_impl = nullptr;
 
-void asyncOutput(const char* msg, int len) {
+void AsyncOutput(const char* msg, int len) {
   log_impl->Append(msg, len);
 }
 
 void Bench(bool longLog) {
-  Logger::SetOutput(asyncOutput);
+  Logger::SetOutput(AsyncOutput);
 
   int cnt           = 0;
   const int kBatch  = 1000;
@@ -37,4 +37,5 @@ void Bench(bool longLog) {
     std::this_thread::sleep_for(std::chrono::nanoseconds(500 * 1000 * 1000));
   }
 }
+
 }  // namespace slog
