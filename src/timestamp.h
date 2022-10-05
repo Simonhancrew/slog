@@ -25,11 +25,11 @@ class Timestamp : public Copyable {
   // Constucts a Timestamp at specific time
   //
   // @param microSecondsSinceEpoch
-  explicit Timestamp(int64_t microseconds_since_epoch_arg)
+  explicit Timestamp(uint64_t microseconds_since_epoch_arg)
       : microseconds_since_epoch_(microseconds_since_epoch_arg) {
   }
 
-  void Swap(Timestamp &that) {
+  void Swap(Timestamp& that) {
     std::swap(microseconds_since_epoch_, that.microseconds_since_epoch_);
   }
 

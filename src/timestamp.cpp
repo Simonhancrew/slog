@@ -5,6 +5,7 @@
 
 #include "stdio.h"
 #include "time.h"
+#include "time_utils_base.h"
 
 namespace slog {
 
@@ -39,7 +40,7 @@ std::string Timestamp::ToFormattedString(bool show_microseconds) const {
 }
 
 Timestamp Timestamp::Now() {
-  
+  return Timestamp(NowMs());
 }
 
 }  // namespace slog

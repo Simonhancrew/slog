@@ -1,5 +1,8 @@
 #pragma once
 
+#include <condition_variable>
+#include <mutex>
+
 #include "noncopyable.h"
 
 namespace slog {

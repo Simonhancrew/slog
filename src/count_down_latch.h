@@ -4,12 +4,10 @@
 #include <atomic>
 #include <condition_variable>
 
-namespace slog{
+namespace slog {
 
-class CountDownLatch : Noncopyable
-{
+class CountDownLatch : Noncopyable {
  public:
-
   explicit CountDownLatch(int count);
 
   void Wait();
@@ -19,10 +17,9 @@ class CountDownLatch : Noncopyable
   int GetCount() const;
 
  private:
-  std::mutex mutex_;
+  mutable std::mutex mutex_;
   std::condition_variable condition_;
   int32_t count_;
 };
 
-
-}
+}  // namespace slog

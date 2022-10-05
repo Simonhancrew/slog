@@ -6,7 +6,7 @@ Language: Cpp
 AlwaysBreakTemplateDeclarations: true
 SpaceAfterTemplateKeyword: false
 DerivePointerAlignment: false
-PointerAlignment: Right
+PointerAlignment: Left
 UseTab: Never
 AlignConsecutiveMacros: true
 AllowShortFunctionsOnASingleLine: None

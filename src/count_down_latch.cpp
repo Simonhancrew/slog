@@ -15,15 +15,15 @@ void CountDownLatch::Wait() {
   }
 }
 
-void CountDownLathc::CountDown() {
+void CountDownLatch::CountDown() {
   std::unique_lock<std::mutex> lk(mutex_);
   --count_;
   if (count_ == 0) {
-    condition_.wait(lk);
+    condition_.notify_all();
   }
 }
 
-void CountDownLatch::GetCount() {
+int CountDownLatch::GetCount() const {
   std::unique_lock<std::mutex> lk(mutex_);
   return count_;
 }

@@ -1,10 +1,13 @@
 #pragma once
 
+#include <Windows.h>
+
 #include <atomic>
 #include <condition_variable>
 #include <mutex>
 #include <string>
 #include <thread>
+#include <vector>
 
 #include "count_down_latch.h"
 #include "log_stream.h"
@@ -14,7 +17,7 @@ namespace slog {
 
 class AsyncLogging : Noncopyable {
  public:
-  AsyncLogging(const std::string &basename, off_t roll_size,
+  AsyncLogging(const std::string& basename, off_t roll_size,
                int flush_interval = 3);
 
   ~AsyncLogging() {
@@ -23,11 +26,12 @@ class AsyncLogging : Noncopyable {
     }
   }
 
-  void append(const char *logline, int len);
+  void Append(const char* logline, int len);
 
   void Start() {
     running_ = true;
     thread_  = std::thread([this] {
+      SetThreadDescription(GetCurrentThread(), L"Log");
       ThreadFunc();
     });
     latch_.Wait();
@@ -53,8 +57,8 @@ class AsyncLogging : Noncopyable {
   CountDownLatch latch_;
   std::mutex mutex_;
   std::condition_variable cond_;
-  BufferPtr currentBuffer_;
-  BufferPtr nextBuffer_;
+  BufferPtr current_buffer_;
+  BufferPtr next_buffer_;
   BufferVector buffers_;
 };
 

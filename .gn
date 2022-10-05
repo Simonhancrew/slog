@@ -1,0 +1,7 @@
+
+# Copy from Google
+import("//build/dotfile_settings.gni")
+
+# The location of the build configuration file.
+buildconfig = "//build/config/BUILDCONFIG.gn"
+

@@ -35,7 +35,7 @@ int AutoResetEvent::Wait(int wait_ms) {
     res = 0;
   } else {
     auto wait_succeeded =
-        cv_.wait_for(l, std::chrono::milliseconds(wait_ms), [this] {
+        cv_.wait_for(lk, std::chrono::milliseconds(wait_ms), [this] {
           return signal_;
         });
     res = (wait_succeeded ? 0 : -1);

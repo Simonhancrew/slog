@@ -8,15 +8,16 @@ namespace slog {
 class Exception : public std::exception {
  public:
   Exception(std::string what);
+  Exception()                    = default;
   ~Exception() noexcept override = default;
 
   // default copy-ctor and operator= are okay.
 
-  const char *what() const noexcept override {
+  const char* what() const noexcept override {
     return message_.c_str();
   }
 
-  const char *StackTrace() const noexcept {
+  const char* StackTrace() const noexcept {
     return stack_.c_str();
   }
 

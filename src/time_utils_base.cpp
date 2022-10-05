@@ -1,5 +1,3 @@
-
-
 #include "time_utils_base.h"
 
 #include <chrono>

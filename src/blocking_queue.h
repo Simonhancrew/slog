@@ -1,5 +1,4 @@
 #pragma once
-
 #include <condition_variable>
 #include <deque>
 #include <mutex>
@@ -14,14 +13,14 @@ class BlockingQueue : Noncopyable {
   // default is OK
   BlockingQueue() = default;
 
-  void Put(const T &x) {
+  void Put(const T& x) {
     std::unique_lock<std::mutex> lock(mutex_);
     queue_.push_back(x);
     not_empty_.notify_all();  // wait morphing saves us
     // http://www.domaigne.com/blog/computing/condvars-signal-with-mutex-locked-or-not/
   }
 
-  void Put(T &&x) {
+  void Put(T&& x) {
     std::unique_lock<std::mutex> lock(mutex_);
     queue_.push_back(std::move(x));
     not_empty_.notify_all();

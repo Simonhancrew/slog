@@ -26,6 +26,9 @@
 *.a
 *.lib
 
+# Misc
+*.pdb
+
 # Executables
 *.exe
 *.out
@@ -33,3 +36,4 @@
 
 # Folders
 .vscode/
+out/

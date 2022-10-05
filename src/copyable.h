@@ -1,5 +1,4 @@
 #pragma once
-
 namespace slog {
 
 // derive class  should be value type
