@@ -30,7 +30,7 @@ class FixedBuffer : Noncopyable {
   }
 
   void Append(const char* data, size_t len) {
-    if (implicit_cast<size_t>(avail()) > len) {
+    if (Implicit_Cast<size_t>(Avail()) > len) {
       memcpy(cur_, data, len);
       cur_ += len;
     }
@@ -61,7 +61,7 @@ class FixedBuffer : Noncopyable {
   }
 
   // for GDB
-  const char* DebugString();
+  // const char* DebugString();
   void SetCookie(void (*cookie)()) {
     cookie_ = cookie;
   }

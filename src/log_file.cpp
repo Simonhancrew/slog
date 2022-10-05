@@ -74,7 +74,7 @@ bool LogFile::RollFile() {
   return false;
 }
 
-std::string GetLogFileName(const std::string& basename, uint64_t* now) {
+std::string LogFile::GetLogFileName(const std::string& basename, uint64_t* now) {
   string file_name;
   file_name.reserve(basename.size() + 64);
   file_name = basename;

@@ -85,7 +85,8 @@ int ReadToString(int max_size, String* content, int64_t* file_size,
       if (fstat(fd_, &statbuf) == 0) {
         if (_S_IFREG(statbuf.st_mode)) {
           file_size = statbuf.st_size;
-                                                content->reserve(static_cast<int> (std::min(Implicit_Cast<int64_t>(max_size), *file_size));
+          content->reserve(static_cast<int>(
+              std::min(Implicit_Cast<int64_t>(max_size), *file_size)));
         } else if (_S_IFDIR(statbuf.st_mode)) {
           err = EISDIR;
         }

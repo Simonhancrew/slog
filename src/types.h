@@ -11,7 +11,7 @@ namespace slog {
 
 using std::string;
 
-void MemZero(void* p, size_t n) {
+inline void MemZero(void* p, size_t n) {
   memset(p, 0, n);
 }
 
@@ -63,7 +63,7 @@ inline To down_cast(From* f)          // so we only accept pointers
   // optimized build at run-time, as it will be optimized away
   // completely.
   if (false) {
-    implicit_cast<From*, To>(0);
+    Implicit_Cast<From*, To>(0);
   }
 
 #if !defined(NDEBUG)

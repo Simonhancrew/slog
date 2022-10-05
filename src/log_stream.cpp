@@ -61,8 +61,8 @@ void FixedBuffer<SIZE>::CookieEnd() {
 
 template<typename T>
 void LogStream::FormatInt(T v) {
-  if (buffer_.avail() >= kMaxNumericSize) {
-    size_t len = convert(buffer_.current(), v);
+  if (buffer_.Avail() >= kMaxNumericSize) {
+    size_t len = Convert(buffer_.Current(), v);
     buffer_.Add(len);
   }
 }

@@ -9,7 +9,10 @@ Generated Projects are located in /out dir
 1. use GN
 
 
+2. use CMake
 
-2. use Cmake
+
+3. use XMake
+
 
  
