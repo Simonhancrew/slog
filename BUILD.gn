@@ -1,0 +1,44 @@
+# Copyright 2014 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+executable("test") {
+  sources = [ 
+    "test/main.cpp",
+  ]
+  include_dirs = [
+    "./src"
+  ]
+
+ deps = [
+    ":slog_static",
+  ]
+}
+
+static_library("slog_static") {
+  sources = [
+    "src/async_logging.cpp",
+    "src/async_logging.h",
+    "src/copyable.h",
+    "src/count_down_latch.cpp",
+    "src/count_down_latch.h",
+    "src/date.cpp",
+    "src/date.h",
+    "src/file_utils.cpp",
+    "src/file_utils.h",
+    "src/log_file.cpp",
+    "src/log_file.h",
+    "src/log_stream.cpp",
+    "src/log_stream.h",
+    "src/logging.cpp",
+    "src/logging.h",
+    "src/noncopyable.h",
+    "src/time_utils_base.cpp",
+    "src/time_utils_base.h",
+    "src/timestamp.cpp",
+    "src/timestamp.h",
+    "src/timezone.cpp",
+    "src/timezone.h",
+    "src/types.h",
+  ]
+}
