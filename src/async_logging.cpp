@@ -87,7 +87,7 @@ void AsyncLogging::ThreadFunc() {
     }
 
     for (const auto& buffer : buffers_to_write) {
-      // FIXME: use unbuffered stdio FILE ? or use ::writev ?
+      // TODO(simon):  using no bufio
       output.Append(buffer->Data(), buffer->Length());
     }
 
