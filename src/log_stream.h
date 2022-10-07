@@ -8,8 +8,8 @@
 
 namespace {
 
-const size_t kSmallBuffer = 4000;
-const size_t kLargeBuffer = 4000 * 1000;
+const size_t kSmallBuffer = 4 * 1024;
+const size_t kLargeBuffer = 4096 * 1024;
 
 }  // namespace
 
@@ -149,12 +149,12 @@ class LogStream : Noncopyable {
     return buffer_;
   }
 
-  void resetBuffer() {
+  void ResetBuffer() {
     buffer_.Reset();
   }
 
  private:
-  void staticCheck();
+  void StaticCheck();
 
   template<typename T>
   void FormatInt(T);

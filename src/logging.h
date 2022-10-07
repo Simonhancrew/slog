@@ -6,8 +6,8 @@
 namespace slog {
 
 enum class LogLevel {
-  kInfo,
   kDebug,
+  kInfo,
   kWarrn,
   kError,
   kFatal,

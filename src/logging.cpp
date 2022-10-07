@@ -15,13 +15,18 @@ const char* StrError(int err_num) {
   strerror_s(error_buf, sizeof error_buf, err_num);
   return error_buf;
 }
+
 }  // namespace
 
 namespace slog {
+  
+LogLevel InitLogLevel() {
+  return slog::LogLevel::kInfo;  
+}
 
-LogLevel global_level = Logger::GLogLevel();
+LogLevel global_level = InitLogLevel();
 
-const char* LevelName[kMaxTypes] = {"INFO  ", "DEBUG ", "WARRN ", "ERROR ",
+const char* LevelName[kMaxTypes] = {"DEBUG ", "INFO  ", "WARRN ", "ERROR ",
                                     "FATAL "};
 // compile time calcu string len
 class T {

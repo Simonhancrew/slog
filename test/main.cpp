@@ -20,7 +20,8 @@ void AsyncOutput(const char* msg, int len) {
 
 void Bench(bool longLog) {
   Logger::SetOutput(AsyncOutput);
-
+  // Logger::SetLogLevel(slog::LogLevel::kInfo);
+  printf("%d\n",static_cast<int>(slog::global_level));
   int cnt           = 0;
   const int kBatch  = 1000;
   std::string empty = " ";
